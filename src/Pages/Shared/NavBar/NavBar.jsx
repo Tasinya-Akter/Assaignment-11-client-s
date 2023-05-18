@@ -4,7 +4,7 @@ import logo from "../../../assets/toy-logo.svg";
 
 const NavBar = () => {
   return (
-    <div className="flex justify-between items-center bg-[#F5F5F5] px-7 lg:px-10 py-6 lg:py-10">
+    <div className="flex justify-between items-center bg-[#F5F5F5] px-7 lg:px-16 py-6 lg:py-10">
       <div className="flex items-center justify-end">
         <Link className="flex items-center gap-1" to="/">
           <img className="h-10 w-10" src={logo} alt="logo" />
@@ -53,7 +53,7 @@ const NavBar = () => {
             </li>
             <li className="text-white">
               <Link>
-                <button className="px-3 py-2 font-bold bg-[#F79837] text-white border-0 rounded hover:bg-white hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
+                <button className="px-3 py-2 font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
                   Login
                 </button>
               </Link>
@@ -80,8 +80,8 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <Link className="hidden lg:flex">
-        <button className="px-3 py-2 font-bold bg-[#F79837] text-white border-0 rounded hover:bg-white hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
+      <Link to="/login" className="hidden lg:flex">
+        <button className="px-3 py-2 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
           Login
         </button>
       </Link>

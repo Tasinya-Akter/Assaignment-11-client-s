@@ -1,17 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/toy-logo.svg";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaGithub,
+  FaGoogle,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-[#F5F5F5] text-base-content">
+    <footer className="footer p-16 justify-between bg-[#F5F5F5] text-base-content">
       <div>
-        <Link className="flex items-center gap-1" to="/">
+        <Link to="/" className="flex items-center gap-1">
           <img className="h-10 w-10" src={logo} alt="logo" />
         </Link>
-        <div>
-          <p className="font-extrabold mb-2 text-base lg:text-xl">
+        <div className="space-y-2">
+          <Link to="/" className="font-extrabold text-base lg:text-xl">
             Baby's <span className="text-[#F79837]">Toy Out</span>
+          </Link>
+
+          <p className="flex gap-3 text-lg">
+            <FaGoogle></FaGoogle>
+            <FaFacebookF></FaFacebookF>
+            <FaTwitter></FaTwitter>
+            <FaInstagram></FaInstagram>
+            <FaGithub></FaGithub>
           </p>
 
           <p>
