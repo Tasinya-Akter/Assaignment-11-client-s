@@ -12,7 +12,8 @@ const Banner = () => {
       <div className="hero-content text-left text-white bg-gradient-to-r h-full from-[#151515] to-[rgba(21, 21, 21, 0)] px-7 lg:px-16">
         <div>
           <h1 className="mb-5 text-3xl lg:text-7xl font-extrabold w-full lg:w-1/2">
-            Baby's Toy, That Makes a Sweet Memory
+            Baby's <span className="text-[#F79837]">Toy Out,</span> Makes a
+            Sweet Memory
           </h1>
           <p className="mb-5 text-xl w-full lg:w-1/2">
             Dream of a world where children can laugh and play and not be blown
