@@ -44,7 +44,7 @@ const Login = () => {
             </label>
 
             <input
-              className="btn btn-ghost text-lg font-bold text-white bg-[#F79837] w-full border-0 rounded  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100"
+              className="btn btn-ghost text-lg font-bold text-white bg-[#F79837] w-full border-0 rounded  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]"
               type="submit"
               value="Login"
             />
@@ -58,13 +58,13 @@ const Login = () => {
         </p>
 
         <div className="flex items-center justify-center mt-6 gap-6">
-          <button className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] rounded-full">
-            <FcGoogle className="h-6 w-6"></FcGoogle> Google
+          <button className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] hover:bg-[#F79837] hover:text-black hover:border-0 rounded-full">
+            <FcGoogle className="h-6 w-6"></FcGoogle> Login with Google
           </button>
-          Or
+          {/* Or
           <button className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] rounded-full">
             <FaGithub className="h-6 w-6"></FaGithub> GitHub
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
