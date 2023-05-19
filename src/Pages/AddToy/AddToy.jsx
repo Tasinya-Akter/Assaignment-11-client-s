@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const {
@@ -7,9 +8,24 @@ const AddToy = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  console.log(errors);
+
   const onSubmit = (formData) => {
     console.log(formData);
+
+    fetch("http://localhost:5000/addToys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire("Bingoo!", "Your toy added successfully!", "success");
+        }
+      });
   };
 
   return (
@@ -54,6 +70,7 @@ const AddToy = () => {
                 className="p-4 border rounded"
                 {...register("sellerEmail", { required: true })}
                 placeholder="Seller Email"
+                type="email"
               />
             </label>
             <label className="flex flex-col gap-2 text-lg">
@@ -70,6 +87,7 @@ const AddToy = () => {
                 className="p-4 border rounded"
                 {...register("price", { required: true })}
                 placeholder="Price"
+                defaultValue="$"
               />
             </label>
             <label className="flex flex-col gap-2 text-lg">

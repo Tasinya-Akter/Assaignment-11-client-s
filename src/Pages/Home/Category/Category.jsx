@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import CategoryTable from "./CategoryTable";
 
 const Category = () => {
+  const [allToys, setAllToys] = useState([]);
+  const [filteredToy, setFilteredToy] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allToys")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllToys(data);
+        const filterByCategory = data.filter(
+          (singleToy) => singleToy.subCategory === "Lego City"
+        );
+        setFilteredToy(filterByCategory);
+      });
+  }, []);
+
+  const handleCategory = (categoryName) => {
+    const filterByCategory = allToys.filter(
+      (singleToy) => singleToy.subCategory === categoryName
+    );
+    setFilteredToy(filterByCategory);
+  };
   return (
     <div className="my-16 px-7 lg:px-16">
       <div className="space-y-6 mb-16">
@@ -14,16 +36,44 @@ const Category = () => {
           experience.
         </p>
       </div>
-      <Tabs>
+      <Tabs className="text-center">
         <TabList>
           {/* Tab 01 */}
-          <Tab>Lego City</Tab>
+          <Tab>
+            <h5
+              onClick={() => handleCategory("Lego City")}
+              className="text-lg font-medium"
+            >
+              Lego City
+            </h5>
+          </Tab>
           {/* Tab 02 */}
-          <Tab>Lego Star Wars</Tab>
+          <Tab>
+            <h5
+              onClick={() => handleCategory("Lego Star War")}
+              className="text-lg font-medium"
+            >
+              Lego Star War
+            </h5>
+          </Tab>
           {/* Tab 03 */}
-          <Tab>Lego Architecture</Tab>
+          <Tab>
+            <h5
+              onClick={() => handleCategory("Lego Architechture")}
+              className="text-lg font-medium"
+            >
+              Lego Architechture
+            </h5>
+          </Tab>
           {/* Tab 04 */}
-          <Tab>Lego Cars</Tab>
+          <Tab>
+            <h5
+              onClick={() => handleCategory("Lego Car")}
+              className="text-lg font-medium"
+            >
+              Lego Car
+            </h5>
+          </Tab>
         </TabList>
 
         {/* Tab 01 */}
@@ -42,35 +92,9 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src="/tailwind-css-component-profile-2@56w.png"
-                            alt="Avatar Tailwind CSS Component"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">Hart Hagerty</div>
-                        <div className="text-sm opacity-50">United States</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    Zemlak, Daniel and Leannon
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      Desktop Support Technician
-                    </span>
-                  </td>
-                  <td>Purple</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
-                  </th>
-                </tr>
+                {filteredToy.map((toy) => (
+                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
+                ))}
               </tbody>
             </table>
           </div>
@@ -91,35 +115,9 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src="/tailwind-css-component-profile-2@56w.png"
-                            alt="Avatar Tailwind CSS Component"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">Hart Hagerty</div>
-                        <div className="text-sm opacity-50">United States</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    Zemlak, Daniel and Leannon
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      Desktop Support Technician
-                    </span>
-                  </td>
-                  <td>Purple</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
-                  </th>
-                </tr>
+                {filteredToy.map((toy) => (
+                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
+                ))}
               </tbody>
             </table>
           </div>
@@ -140,35 +138,9 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src="/tailwind-css-component-profile-2@56w.png"
-                            alt="Avatar Tailwind CSS Component"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">Hart Hagerty</div>
-                        <div className="text-sm opacity-50">United States</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    Zemlak, Daniel and Leannon
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      Desktop Support Technician
-                    </span>
-                  </td>
-                  <td>Purple</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
-                  </th>
-                </tr>
+                {filteredToy.map((toy) => (
+                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
+                ))}
               </tbody>
             </table>
           </div>
@@ -189,35 +161,9 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr>
-                  <td>
-                    <div className="flex items-center space-x-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src="/tailwind-css-component-profile-2@56w.png"
-                            alt="Avatar Tailwind CSS Component"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">Hart Hagerty</div>
-                        <div className="text-sm opacity-50">United States</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    Zemlak, Daniel and Leannon
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      Desktop Support Technician
-                    </span>
-                  </td>
-                  <td>Purple</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
-                  </th>
-                </tr>
+                {filteredToy.map((toy) => (
+                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
+                ))}
               </tbody>
             </table>
           </div>
