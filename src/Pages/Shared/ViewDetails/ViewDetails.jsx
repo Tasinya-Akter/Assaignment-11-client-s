@@ -22,8 +22,8 @@ const ViewDetails = () => {
         LEGO <span className="text-[#F79837]">Toy</span> Details
       </h2>
       <div className="hero min-h-screen  mt-16">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src={image} className="max-w-md p-4 rounded-lg shadow-2xl" />
+        <div className="hero-content flex-col lg:flex-row-reverse gap-10">
+          <img src={image} className="max-w-lg p-4 rounded-lg shadow-2xl" />
           <div className="space-y-6">
             <h1 className="text-5xl font-extrabold">{productName}</h1>
             <p className="text-xl">
