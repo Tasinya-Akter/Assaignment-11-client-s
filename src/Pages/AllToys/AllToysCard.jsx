@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AllToysCard = ({ toy }) => {
   const {
@@ -17,9 +18,11 @@ const AllToysCard = ({ toy }) => {
       <td className="text-lg font-semibold">{price}</td>
       <td className="text-lg font-semibold">{availableQuantity}</td>
       <th>
-        <button className="px-5 py-3 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
-          View Details
-        </button>
+        <Link to={`/toy/${_id}`}>
+          <button className="px-5 py-3 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
+            View Details
+          </button>
+        </Link>
       </th>
     </tr>
   );
