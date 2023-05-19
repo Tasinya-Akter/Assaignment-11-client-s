@@ -5,28 +5,18 @@ import CategoryTable from "./CategoryTable";
 
 const Category = () => {
   const [allToys, setAllToys] = useState([]);
-  const [filteredToy, setFilteredToy] = useState([]);
+  const [categoryName, setCategoryName] = useState("Lego City");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allToys")
+    fetch(`http://localhost:5000/categoryFiltered?category=${categoryName}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
-
-        //   Initial data loading while rendering
-        const filterByCategory = data.filter(
-          (singleToy) => singleToy.subCategory === "Lego City"
-        );
-        setFilteredToy(filterByCategory);
       });
-  }, []);
+  }, [categoryName]);
 
-  // Filtered data loading while clicked on a category
-  const handleCategory = (categoryName) => {
-    const filterByCategory = allToys.filter(
-      (singleToy) => singleToy.subCategory === categoryName
-    );
-    setFilteredToy(filterByCategory);
+  const handleCategory = (category) => {
+    setCategoryName(category);
   };
   return (
     <div className="my-16 px-7 lg:px-16">
@@ -95,7 +85,7 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {filteredToy.map((toy) => (
+                {allToys.map((toy) => (
                   <CategoryTable key={toy._id} toy={toy}></CategoryTable>
                 ))}
               </tbody>
@@ -118,7 +108,7 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {filteredToy.map((toy) => (
+                {allToys.map((toy) => (
                   <CategoryTable key={toy._id} toy={toy}></CategoryTable>
                 ))}
               </tbody>
@@ -141,7 +131,7 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {filteredToy.map((toy) => (
+                {allToys.map((toy) => (
                   <CategoryTable key={toy._id} toy={toy}></CategoryTable>
                 ))}
               </tbody>
@@ -164,7 +154,7 @@ const Category = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {filteredToy.map((toy) => (
+                {allToys.map((toy) => (
                   <CategoryTable key={toy._id} toy={toy}></CategoryTable>
                 ))}
               </tbody>
