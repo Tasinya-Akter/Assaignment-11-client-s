@@ -53,7 +53,7 @@ const NavBar = () => {
             </li>
             <li className="text-white">
               <Link>
-                <button className="px-3 py-2 font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
+                <button className="px-3 py-2 font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]">
                   Login
                 </button>
               </Link>

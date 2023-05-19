@@ -28,7 +28,7 @@ const CategoryTable = ({ toy }) => {
         <span className="ml-2">({rating})</span>
       </td>
       <th>
-        <button className="px-5 py-3 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
+        <button className="px-5 py-3 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]">
           View Details
         </button>
       </th>
