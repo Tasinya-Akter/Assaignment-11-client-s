@@ -54,6 +54,7 @@ const AddToy = () => {
                 {...register("image", { required: true })}
                 placeholder="Photo URL"
                 type="url"
+                defaultValue="https://i.ibb.co/XCs7y9d/02-lego-city.png"
               />
             </label>
             <label className="flex flex-col gap-2 text-lg">
@@ -75,11 +76,16 @@ const AddToy = () => {
             </label>
             <label className="flex flex-col gap-2 text-lg">
               Sub Category
-              <input
+              <select
                 className="p-4 border rounded"
                 {...register("subCategory", { required: true })}
                 placeholder="Sub Category"
-              />
+              >
+                <option value="Lego City">Lego City</option>
+                <option value="Lego Star War">Lego Star War</option>
+                <option value="Lego Architechture">Lego Architechture</option>
+                <option value="Lego Car">Lego Car</option>
+              </select>
             </label>
             <label className="flex flex-col gap-2 text-lg">
               Price
@@ -87,7 +93,7 @@ const AddToy = () => {
                 className="p-4 border rounded"
                 {...register("price", { required: true })}
                 placeholder="Price"
-                defaultValue="$"
+                defaultValue="$149"
               />
             </label>
             <label className="flex flex-col gap-2 text-lg">
@@ -96,6 +102,7 @@ const AddToy = () => {
                 className="p-4 border rounded"
                 {...register("rating", { required: true })}
                 placeholder="Rating"
+                defaultValue="4.6"
               />
             </label>
             <label className="flex flex-col gap-2 text-lg">
@@ -104,6 +111,7 @@ const AddToy = () => {
                 className="p-4 border rounded"
                 {...register("availableQuantity", { required: true })}
                 placeholder="Available Quantity"
+                defaultValue="187"
               />
             </label>
           </div>
