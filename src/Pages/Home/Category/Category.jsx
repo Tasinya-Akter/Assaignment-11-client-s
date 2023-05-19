@@ -12,6 +12,8 @@ const Category = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
+
+        //   Initial data loading while rendering
         const filterByCategory = data.filter(
           (singleToy) => singleToy.subCategory === "Lego City"
         );
@@ -19,6 +21,7 @@ const Category = () => {
       });
   }, []);
 
+  // Filtered data loading while clicked on a category
   const handleCategory = (categoryName) => {
     const filterByCategory = allToys.filter(
       (singleToy) => singleToy.subCategory === categoryName
