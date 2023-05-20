@@ -36,7 +36,6 @@ const AddToy = () => {
 
       <div className="mt-16">
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* {errors.exampleRequired && <span>This field is required.</span>} */}
           <div className="grid grid-cols-2 gap-6">
             <label className="flex flex-col gap-2 text-lg">
               Name

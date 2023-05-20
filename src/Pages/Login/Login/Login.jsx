@@ -19,8 +19,6 @@ const Login = () => {
   } = useForm();
 
   const handleLogin = (data) => {
-    console.log(data);
-
     if (data.password.length < 6) {
       return setErrorMessage("Passwords must be at Least 6 Characters");
     }
@@ -30,10 +28,8 @@ const Login = () => {
 
         // Navigate to last page
         navigate(location.state?.from?.pathname || "/", { replace: true });
-        console.log(user);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   };
