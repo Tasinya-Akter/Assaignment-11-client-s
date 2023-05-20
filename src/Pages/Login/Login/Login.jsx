@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import loginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
   const { logInUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
   const {
     register,
     handleSubmit,
@@ -20,6 +23,9 @@ const Login = () => {
     logInUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
+
+        // Navigate to last page
+        navigate(location.state?.from?.pathname || "/", { replace: true });
         console.log(user);
       })
       .catch((error) => {

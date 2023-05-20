@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import CategoryTable from "./CategoryTable";
@@ -18,6 +18,7 @@ const Category = () => {
   const handleCategory = (category) => {
     setCategoryName(category);
   };
+
   return (
     <div className="my-16 px-7 lg:px-16">
       <div className="space-y-6 mb-16">

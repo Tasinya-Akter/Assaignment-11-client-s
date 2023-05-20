@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import loginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
@@ -9,6 +9,8 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -24,6 +26,9 @@ const Register = () => {
 
         // calling function to update profile
         updateCurrentUser(user, data);
+
+        // Navigate to last page
+        navigate(location.state?.from?.pathname || "/", { replace: true });
         console.log(user);
       })
       .catch((error) => {

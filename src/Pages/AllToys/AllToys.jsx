@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AllToysCard from "./AllToysCard";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [searchItem, setSearchItem] = useState("");
 
-  console.log(searchItem);
   useEffect(() => {
     fetch("http://localhost:5000/allToys?limit=20")
       .then((res) => res.json())
@@ -21,6 +20,7 @@ const AllToys = () => {
         setAllToys(data);
       });
   };
+
   return (
     <div className="my-16 px-7 lg:px-16">
       <h2 className="text-5xl font-bold text-center">

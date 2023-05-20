@@ -3,8 +3,9 @@ import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const CategoryTable = ({ toy }) => {
+const CategoryTable = ({ toy, handleViewDetails }) => {
   const { _id, image, productName, price, rating } = toy;
+
   return (
     <tr>
       <td>
@@ -30,7 +31,10 @@ const CategoryTable = ({ toy }) => {
       </td>
       <th>
         <Link to={`/toy/${_id}`}>
-          <button className="px-5 py-3 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]">
+          <button
+            onClick={handleViewDetails}
+            className="px-5 py-3 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]"
+          >
             View Details
           </button>
         </Link>
