@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import CategoryTable from "./CategoryTable";
+import CategoryCard from "./CategoryCard";
 
 const Category = () => {
   const [allToys, setAllToys] = useState([]);
@@ -72,94 +72,34 @@ const Category = () => {
 
         {/* Tab 01 */}
         <TabPanel>
-          <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Rating</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                {allToys.map((toy) => (
-                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+            {allToys.map((toy) => (
+              <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+            ))}
           </div>
         </TabPanel>
         {/* Tab 02 */}
         <TabPanel>
-          <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Rating</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                {allToys.map((toy) => (
-                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+            {allToys.map((toy) => (
+              <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+            ))}
           </div>
         </TabPanel>
         {/* Tab 03 */}
         <TabPanel>
-          <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Rating</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                {allToys.map((toy) => (
-                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+            {allToys.map((toy) => (
+              <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+            ))}
           </div>
         </TabPanel>
         {/* Tab 04 */}
         <TabPanel>
-          <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Rating</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                {allToys.map((toy) => (
-                  <CategoryTable key={toy._id} toy={toy}></CategoryTable>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+            {allToys.map((toy) => (
+              <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+            ))}
           </div>
         </TabPanel>
       </Tabs>
