@@ -67,6 +67,31 @@ const MyToys = () => {
     form.reset();
   };
 
+  // Delete toy from database and table
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Want to delete the Toy?",
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+      icon: "warning",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/deleteToy/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Congrats!", "Toy has been deleted!", "success");
+            }
+          });
+      } else Swal.fire(" Cancelled", "", "error");
+    });
+  };
+
   return (
     <div className="my-16 px-7 lg:px-16">
       <h2 className="text-5xl font-bold text-center">
