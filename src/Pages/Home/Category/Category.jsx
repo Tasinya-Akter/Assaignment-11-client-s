@@ -2,6 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import CategoryCard from "./CategoryCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Category = () => {
   const [allToys, setAllToys] = useState([]);
@@ -12,6 +14,7 @@ const Category = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
+        AOS.init();
       });
   }, [categoryName]);
 
@@ -20,7 +23,11 @@ const Category = () => {
   };
 
   return (
-    <div className="my-16 px-7 lg:px-16">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="3000"
+      className="my-16 px-7 lg:px-16"
+    >
       <div className="space-y-6 mb-16">
         <h2 className="text-5xl font-bold text-center">
           Shop by <span className="text-[#F79837]">Category</span>
