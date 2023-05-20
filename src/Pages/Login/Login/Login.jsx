@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import loginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -7,10 +7,11 @@ import { FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
-  const { logInUser } = useContext(AuthContext);
+  const { logInUser, googleLogin } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+
   const {
     register,
     handleSubmit,
@@ -20,6 +21,9 @@ const Login = () => {
   const handleLogin = (data) => {
     console.log(data);
 
+    if (data.password.length < 6) {
+      return setErrorMessage("Passwords must be at Least 6 Characters");
+    }
     logInUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -30,6 +34,19 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(location.state?.from?.pathname || "/", { replace: true });
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
       });
   };
 
@@ -59,7 +76,7 @@ const Login = () => {
                 type="password"
               />
             </label>
-
+            <p className="text-red-600 font-semibold">{errorMessage}</p>
             <input
               className="btn btn-ghost text-lg font-bold text-white bg-[#F79837] w-full border-0 rounded  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]"
               type="submit"
@@ -75,7 +92,10 @@ const Login = () => {
         </p>
 
         <div className="flex items-center justify-center mt-6 gap-6">
-          <button className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] hover:bg-[#F79837] hover:text-black hover:border-0 rounded-full">
+          <button
+            onClick={handleGoogleLogin}
+            className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] hover:bg-[#F79837] hover:text-black hover:border-0 rounded-full"
+          >
             <FcGoogle className="h-6 w-6"></FcGoogle> Login with Google
           </button>
           {/* Or

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import loginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -8,7 +8,9 @@ import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleLogin } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -18,21 +20,23 @@ const Register = () => {
   } = useForm();
 
   const handleRegister = (data) => {
-    console.log(data);
+    setErrorMessage("");
 
+    if (data.password.length < 6) {
+      return setErrorMessage("Passwords must be at Least 6 Characters");
+    }
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-
         // calling function to update profile
         updateCurrentUser(user, data);
 
         // Navigate to last page
         navigate(location.state?.from?.pathname || "/", { replace: true });
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -47,6 +51,19 @@ const Register = () => {
         console.log(error);
       });
   };
+
+  const handleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(location.state?.from?.pathname || "/", { replace: true });
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  };
+
   return (
     <div className="my-16 px-7 lg:px-16 flex items-center gap-10">
       <img className="w-1/2" src={loginImg} alt="" />
@@ -93,7 +110,7 @@ const Register = () => {
                 type="password"
               />
             </label>
-
+            <p className="text-red-600 font-semibold">{errorMessage}</p>
             <input
               className="btn btn-ghost text-lg font-bold text-white bg-[#F79837] w-full border-0 rounded  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]"
               type="submit"
@@ -109,7 +126,10 @@ const Register = () => {
         </p>
 
         <div className="flex items-center justify-center mt-6 gap-6">
-          <button className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] hover:bg-[#F79837] hover:text-black hover:border-0 rounded-full">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn btn-outline inline-flex items-center gap-2 text-lg font-semibold border-2 border-[#F79837] hover:bg-[#F79837] hover:text-black hover:border-0 rounded-full"
+          >
             <FcGoogle className="h-6 w-6"></FcGoogle> Sign In with Google
           </button>
           {/* Or
