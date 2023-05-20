@@ -25,7 +25,9 @@ const ViewDetails = () => {
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
           <img src={image} className="max-w-lg p-4 rounded-lg shadow-2xl" />
           <div className="space-y-6">
-            <h1 className="text-5xl font-extrabold">{productName}</h1>
+            <h1 className="text-5xl font-extrabold text-[#F79837]">
+              {productName}
+            </h1>
             <p className="text-xl">
               <span className="font-bold">Details Description: </span>
               {detailsDescription}

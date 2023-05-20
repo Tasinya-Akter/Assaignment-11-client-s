@@ -25,18 +25,66 @@ const Gallery = () => {
         </p>
       </div>
       <div className="mt-16 card grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <img className="border p-6 h-96 w-full rounded-xl" src={img1} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img2} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img3} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img4} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img5} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img6} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img7} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img8} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img9} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img10} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img11} alt="" />
-        <img className="border p-6 h-96 w-full rounded-xl" src={img12} alt="" />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img1}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img2}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img3}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img4}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img5}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img6}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img7}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img8}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img9}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img10}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img11}
+          alt=""
+        />
+        <img
+          className="border border-[#F79837] p-6 h-96 w-full rounded-xl"
+          src={img12}
+          alt=""
+        />
       </div>
     </div>
   );

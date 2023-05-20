@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/toy-logo.svg";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex justify-between items-center bg-[#F5F5F5] px-7 lg:px-16 py-6 lg:py-10">
       <div className="flex items-center justify-end">
@@ -80,19 +91,25 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <Link to="/login" className="hidden lg:flex">
-        <button className="px-3 py-2 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
-          Login
-        </button>
-      </Link>
-      {/* <div>
-        <img src="" alt="" />
-        <Link className="hidden lg:flex">
-          <button className="px-3 py-2 font-bold bg-[#F79837] text-white border-0 rounded hover:bg-white hover:text-[#F79837] hover:border-2 hover:border-[#F79837] delay-100">
-            Logout
+      {user ? (
+        <div className="inline-flex gap-3">
+          <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
+          <Link className="hidden lg:flex">
+            <button
+              onClick={handleLogOut}
+              className="px-3 py-2 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]"
+            >
+              Logout
+            </button>
+          </Link>
+        </div>
+      ) : (
+        <Link to="/login" className="hidden lg:flex">
+          <button className="px-3 py-2 text-lg font-bold bg-[#F79837] text-white border-0  hover:bg-transparent hover:text-[#F79837] hover:border-2 hover:border-[#F79837]">
+            Login
           </button>
         </Link>
-      </div> */}
+      )}
     </div>
   );
 };

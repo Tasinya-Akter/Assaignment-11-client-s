@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import loginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
+import { AuthContext } from "../../../Providers/AuthProvider";
+
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -13,6 +17,30 @@ const Register = () => {
 
   const handleRegister = (data) => {
     console.log(data);
+
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+
+        // calling function to update profile
+        updateCurrentUser(user, data);
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // Updating user displayName and photoURL
+  const updateCurrentUser = (user, data) => {
+    updateProfile(user, {
+      displayName: data.name,
+      photoURL: data.image,
+    })
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="my-16 px-7 lg:px-16 flex items-center gap-10">

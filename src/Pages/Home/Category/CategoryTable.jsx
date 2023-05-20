@@ -10,7 +10,7 @@ const CategoryTable = ({ toy }) => {
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
-            <div className="p-4 w-64 h-64 border shadow-lg rounded bg-white">
+            <div className="p-4 w-64 h-64 border border-[#F79837] shadow-lg rounded bg-white">
               <img src={image} alt="photo" />
             </div>
           </div>

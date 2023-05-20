@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import loginImg from "../../../assets/Login/login.jpg";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
+  const { logInUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -14,6 +16,15 @@ const Login = () => {
 
   const handleLogin = (data) => {
     console.log(data);
+
+    logInUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
