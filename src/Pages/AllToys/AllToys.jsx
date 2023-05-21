@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import AllToysCard from "./AllToysCard";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [searchItem, setSearchItem] = useState("");
+  useTitle("All Toys");
 
   useEffect(() => {
     fetch(

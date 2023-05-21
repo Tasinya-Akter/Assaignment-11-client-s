@@ -6,7 +6,7 @@ const Banner = () => {
     <div
       className="hero place-items-start min-h-[700px]"
       style={{
-        backgroundImage: `url("https://thumbs.dreamstime.com/b/baby-kid-toys-banner-background-wooden-blocks-train-car-plane-pop-fidget-toy-yellow-background-top-view-222995646.jpg")`,
+        backgroundImage: `url("https://i.ibb.co/Dts6bfz/baby-kid-toys-banner-background-wooden-blocks-train-car-plane-pop-fidget-toy-yellow-background-top-v.jpg")`,
       }}
     >
       <div className="hero-content text-left text-white bg-gradient-to-r h-full from-[#151515] to-[rgba(21, 21, 21, 0)] px-7 lg:px-16">

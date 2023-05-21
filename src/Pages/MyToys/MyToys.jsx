@@ -2,11 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myAllToys, setMyAllToys] = useState([]);
   const [singleToy, setSingleToy] = useState([]);
+
+  useTitle("My Toys");
 
   useEffect(() => {
     fetch(
@@ -16,7 +19,7 @@ const MyToys = () => {
       .then((data) => {
         setMyAllToys(data);
       });
-  }, [myAllToys]);
+  }, []);
 
   // Edit data
   const handleEditBtn = (id) => {
@@ -46,7 +49,7 @@ const MyToys = () => {
     console.log(updateData);
 
     fetch(
-      `http://toy-marketplace-server-side-orpin.vercel.app/updateToy/${_id}`,
+      `https://toy-marketplace-server-side-orpin.vercel.app/updateToy/${_id}`,
       {
         method: "PUT",
         headers: {
@@ -61,12 +64,13 @@ const MyToys = () => {
         if (data.modifiedCount > 0) {
           Swal.fire(
             "Congrats!",
-            "Your toy info Updated successfully!",
+            "Your toy info Updated successfully! Please reload",
             "success"
           );
           const remaining = myAllToys.filter((toy) => toy._id !== _id);
           const updatedToy = myAllToys.filter((toy) => toy._id === _id);
-          setMyAllToys(updatedToy, ...remaining);
+          const newToyData = [...remaining, ...updatedToy];
+          setMyAllToys(newToyData);
         }
       });
     form.reset();
@@ -93,7 +97,11 @@ const MyToys = () => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Congrats!", "Toy has been deleted!", "success");
+              Swal.fire(
+                "Congrats!",
+                "Toy has been deleted! Please reload",
+                "success"
+              );
             }
           });
       } else Swal.fire(" Cancelled", "", "error");

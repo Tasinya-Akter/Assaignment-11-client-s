@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
   const { createUser, googleLogin } = useContext(AuthContext);
@@ -13,6 +14,8 @@ const Register = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  useTitle("Register");
+
   const {
     register,
     handleSubmit,

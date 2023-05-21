@@ -2,9 +2,12 @@ import React from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const ViewDetails = () => {
   const singleToyData = useLoaderData();
+  useTitle("View Details");
+
   const {
     _id,
     image,
