@@ -40,7 +40,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleToy/${params.id}`),
+          fetch(
+            `https://toy-marketplace-server-side-orpin.vercel.app/singleToy/${params.id}`
+          ),
       },
       {
         path: "/myToys",

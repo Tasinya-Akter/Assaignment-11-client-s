@@ -12,7 +12,7 @@ const AddToy = () => {
   const onSubmit = (formData) => {
     console.log(formData);
 
-    fetch("http://localhost:5000/addToys", {
+    fetch("https://toy-marketplace-server-side-orpin.vercel.app/addToys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

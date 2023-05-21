@@ -6,7 +6,9 @@ const AllToys = () => {
   const [searchItem, setSearchItem] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allToys?limit=20")
+    fetch(
+      "https://toy-marketplace-server-side-orpin.vercel.app/allToys?limit=20"
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -14,7 +16,9 @@ const AllToys = () => {
   }, []);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/getToyBySearch?name=${searchItem}`)
+    fetch(
+      `https://toy-marketplace-server-side-orpin.vercel.app/getToyBySearch?name=${searchItem}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);

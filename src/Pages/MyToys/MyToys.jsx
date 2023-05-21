@@ -9,7 +9,9 @@ const MyToys = () => {
   const [singleToy, setSingleToy] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?user=${user.email}`)
+    fetch(
+      `https://toy-marketplace-server-side-orpin.vercel.app/myToys?user=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyAllToys(data);
@@ -18,7 +20,9 @@ const MyToys = () => {
 
   // Edit data
   const handleEditBtn = (id) => {
-    fetch(`http://localhost:5000/singleToy/${id}`)
+    fetch(
+      `https://toy-marketplace-server-side-orpin.vercel.app/singleToy/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSingleToy(data[0]);
@@ -41,13 +45,16 @@ const MyToys = () => {
     };
     console.log(updateData);
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateData),
-    })
+    fetch(
+      `https://toy-marketplace-server-side-orpin.vercel.app/updateToy/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -76,9 +83,12 @@ const MyToys = () => {
       icon: "warning",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteToy/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://toy-marketplace-server-side-orpin.vercel.app/deleteToy/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -93,7 +103,9 @@ const MyToys = () => {
   const handleSortByPrice = (event) => {
     const sort = event.target.value;
 
-    fetch(`http://localhost:5000/sortBy?user=${user.email}&&sort=${sort}`)
+    fetch(
+      `https://toy-marketplace-server-side-orpin.vercel.app/sortBy?user=${user.email}&&sort=${sort}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyAllToys(data);

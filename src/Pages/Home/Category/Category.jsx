@@ -10,7 +10,9 @@ const Category = () => {
   const [categoryName, setCategoryName] = useState("Lego City");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categoryFiltered?category=${categoryName}`)
+    fetch(
+      `https://toy-marketplace-server-side-orpin.vercel.app/categoryFiltered?category=${categoryName}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -26,10 +28,10 @@ const Category = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="3000"
-      className="my-16 px-7 lg:px-16"
+      className="mt-36 mb-16 px-7 lg:px-16"
     >
       <div className="space-y-6 mb-16">
-        <h2 className="text-5xl font-bold text-center">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center">
           Shop by <span className="text-[#F79837]">Category</span>
         </h2>
         <p className="text-center text-xl">

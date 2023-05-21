@@ -17,10 +17,10 @@ const NewArrival = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="3000"
-      className="my-16 px-7 lg:px-16 "
+      className="mt-36 mb-16 px-7 lg:px-16 "
     >
       <div className="space-y-6 mb-16">
-        <h2 className="text-5xl font-bold text-center">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center">
           New Arrival <span className="text-[#F79837]">Toy</span>
         </h2>
         <p className="text-center text-xl">
@@ -30,35 +30,35 @@ const NewArrival = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center rounded-box bg-white">
         <img
-          className="w-full border shadow-lg p-5 h-96"
+          className="w-full border border-[#F79837] shadow-lg p-5 h-96"
           src={img1}
           alt="toy"
         />
         <div className="grid grid-cols-2 gap-4 w-full">
           {" "}
           <img
-            className="w-60 h-52 border shadow-lg p-5"
+            className="w-60 h-40 lg:h-52 border border-[#F79837] shadow-lg p-5"
             src={img2}
             alt="toy"
           />
           <img
-            className="w-60 h-52 border shadow-lg p-5"
+            className="w-60 h-40 lg:h-52 border border-[#F79837] shadow-lg p-5"
             src={img3}
             alt="toy"
           />
           <img
-            className="w-60 h-52 border shadow-lg p-5"
+            className="w-60 h-40 lg:h-52 border border-[#F79837] shadow-lg p-5"
             src={img4}
             alt="toy"
           />
           <img
-            className="w-60 h-52 border shadow-lg p-5"
+            className="w-60 h-40 lg:h-52 border border-[#F79837] shadow-lg p-5"
             src={img5}
             alt="toy"
           />
         </div>
         <img
-          className="w-full border shadow-lg p-5 h-96"
+          className="w-full border border-[#F79837] shadow-lg p-5 h-96"
           src={img6}
           alt="toy"
         />

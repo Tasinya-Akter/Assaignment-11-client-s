@@ -23,10 +23,10 @@ const Gallery = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="3000"
-      className="my-16 px-7 lg:px-16 "
+      className="mt-36 mb-16 px-7 lg:px-16 "
     >
       <div className="space-y-6">
-        <h2 className="text-5xl font-bold text-center">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center">
           Hot <span className="text-[#F79837]">Gallery</span>
         </h2>
         <p className="text-center text-xl">
