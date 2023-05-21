@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaEdit } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp, FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
-// import { useForm } from "react-hook-form";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -15,11 +14,10 @@ const MyToys = () => {
       .then((data) => {
         setMyAllToys(data);
       });
-  }, [myAllToys]);
+  }, []);
 
+  // Edit data
   const handleEditBtn = (id) => {
-    console.log(id);
-
     fetch(`http://localhost:5000/singleToy/${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -92,11 +90,30 @@ const MyToys = () => {
     });
   };
 
+  const handleSortByPrice = (event) => {
+    const sort = event.target.value;
+
+    fetch(`http://localhost:5000/sortBy?user=${user.email}&&sort=${sort}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyAllToys(data);
+      });
+  };
+
   return (
     <div className="my-16 px-7 lg:px-16">
       <h2 className="text-5xl font-bold text-center">
         My <span className="text-[#F79837]">Toys</span>
       </h2>
+
+      {/* Sorting option */}
+      <label className="flex flex-col items-center my-16">
+        <span className="text-lg mb-2">Sort By Price</span>
+        <select onChange={handleSortByPrice} className="border p-2" name="sort">
+          <option value="1">Up</option>
+          <option value="-1">Down</option>
+        </select>
+      </label>
 
       <div className="mt-16">
         <div className="w-full">
