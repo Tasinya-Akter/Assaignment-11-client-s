@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import img1 from "../../../assets/gallery/01-lego city.png";
 import img2 from "../../../assets/gallery/02-lego city.png";
 import img3 from "../../../assets/gallery/03-lego city.png";
@@ -11,10 +11,20 @@ import img9 from "../../../assets/gallery/09-lego architechture.jpg";
 import img10 from "../../../assets/gallery/10-lego car.png";
 import img11 from "../../../assets/gallery/11-lego car.jpg";
 import img12 from "../../../assets/gallery/12-lego car.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="my-16 px-7 lg:px-16 ">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="3000"
+      className="my-16 px-7 lg:px-16 "
+    >
       <div className="space-y-6">
         <h2 className="text-5xl font-bold text-center">
           Hot <span className="text-[#F79837]">Gallery</span>

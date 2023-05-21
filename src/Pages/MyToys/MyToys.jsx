@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaAngleDown, FaAngleUp, FaEdit } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MyToys = () => {
