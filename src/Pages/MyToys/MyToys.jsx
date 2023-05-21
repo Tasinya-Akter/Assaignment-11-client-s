@@ -16,7 +16,7 @@ const MyToys = () => {
       .then((data) => {
         setMyAllToys(data);
       });
-  }, []);
+  }, [myAllToys]);
 
   // Edit data
   const handleEditBtn = (id) => {
@@ -46,7 +46,7 @@ const MyToys = () => {
     console.log(updateData);
 
     fetch(
-      `https://toy-marketplace-server-side-orpin.vercel.app/updateToy/${_id}`,
+      `http://toy-marketplace-server-side-orpin.vercel.app/updateToy/${_id}`,
       {
         method: "PUT",
         headers: {
