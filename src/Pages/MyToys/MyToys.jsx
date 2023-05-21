@@ -130,8 +130,8 @@ const MyToys = () => {
       <label className="flex flex-col items-center my-16">
         <span className="text-lg mb-2">Sort By Price</span>
         <select onChange={handleSortByPrice} className="border p-2" name="sort">
-          <option value="1">Up</option>
-          <option value="-1">Down</option>
+          <option value="-1">Up</option>
+          <option value="1">Down</option>
         </select>
       </label>
 
